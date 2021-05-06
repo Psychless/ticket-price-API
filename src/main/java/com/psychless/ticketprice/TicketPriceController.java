@@ -1,18 +1,20 @@
 package com.psychless.ticketprice;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
+import java.math.BigDecimal;
 
 @RestController
 public class TicketPriceController {
 
-    @GetMapping("/getTicketPrice")
-    public float getTicketPrice(@RequestBody List<Passenger> passengers) {
-        float ticketPrice = 0;
+    @Autowired
+    TicketPriceService ticketPriceService;
 
-        return ticketPrice;
+    @GetMapping("/getTicketPrice")
+    public BigDecimal getTicketPrice(@RequestBody RouteInfo routeInfo) {
+        return ticketPriceService.getTicketDraftPrice(routeInfo);
     }
 }
