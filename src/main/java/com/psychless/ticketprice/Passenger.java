@@ -2,7 +2,6 @@ package com.psychless.ticketprice;
 
 public class Passenger {
     private PassengerAge age;
-
     private int bagCount;
 
     public enum PassengerAge {

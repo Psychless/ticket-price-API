@@ -1,8 +1,10 @@
 package com.psychless.ticketprice;
 
+import javax.validation.constraints.NotEmpty;
 import java.util.List;
 
 public class RouteInfo {
+    @NotEmpty(message = "Destination cannot be empty")
     String destination;
     List<Passenger> passengers;
 
